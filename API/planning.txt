@@ -1,0 +1,18 @@
+##API
+
+-Auth
+-Food
+-Restaurants
+-Menu
+-Order
+-Payments->Razorpay API
+-Reviews
+-User
+-Image
+
+functions need to be prepared :
+
+-> findById     -XXXXX
+-> findByIdAndUpdate    -XXXXX
+-> findByEmailAndPassword   -XXXXX
+-> findByIdAndDelete    -XXXXX 
