@@ -1,6 +1,9 @@
 import mongoose from "mongoose";
 import allModels from "allModels.js";
 
+import dotenv from"dotenv";
+dotenv.config();
+
 export default async () => {
     return mongoose.connect(
       process.env.MONGO_URL

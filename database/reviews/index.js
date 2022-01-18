@@ -18,3 +18,16 @@ const ReviewSchema = new mongoose.Schema({
 });
 
 export const ReviewModel = mongoose.model("Reviews", ReviewSchema);
+
+/*
+
+{
+	"review":{
+		"rating": 5,
+		"reviewText": "good",
+		"isRestaurantReview": true,
+		"isFoodReview": false
+	}
+}
+
+*/
