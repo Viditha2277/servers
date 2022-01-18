@@ -2,16 +2,17 @@ import express from "express";
 
 import {ReviewModel} from "../../database/allModels";
 
+const Router = express.Router();
 
 /*
-Route        /new
+Route        /review/new
 Des          Add new review
 Params       none
 Access       Public
 Method       POST
 */
 
-Router.post("/new", async(req,res)=> {
+Router.post("/review/new", async(req,res)=> {
   try {
     const {reviewData} = req.body;
 
@@ -24,14 +25,14 @@ Router.post("/new", async(req,res)=> {
 });
 
 /*
-Route        /delete
+Route        /review/delete
 Des          Delete a review
 Params       _id
 Access       Public
 Method       DELETE
 */
 
-Router.delete("/delete/:_id", async(req,res)=> {
+Router.delete("/review/delete/:_id", async(req,res)=> {
   try {
     const {_id} = req.params;
 

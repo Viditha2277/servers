@@ -2,16 +2,17 @@ import express from "express";
 
 import {UserModel} from "../../database/allModels";
 
+const Router = express.Router();
 
 /*
-Route        /
+Route        /user
 Des          Get an user data
 Params       _id
 Access       Public
 Method       GET
 */
 
-Router.get("/:_id", async(req,res)=> {
+Router.get("/user/:_id", async(req,res)=> {
   try {
     const {_id} = req.params;
     const getUser = await UserModel.findById(_id);
@@ -22,14 +23,14 @@ Router.get("/:_id", async(req,res)=> {
 });
 
 /*
-Route        /update
+Route        /user/update
 Des          Update an user data
 Params       userId
 Access       Public
 Method       PUT
 */
 
-Router.put("/update/:_userId", async(req,res)=> {
+Router.put("/user/update/:_userId", async(req,res)=> {
   try {
     const {userId} = req.params;
     const {userData} = req.body;

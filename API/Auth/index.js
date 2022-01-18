@@ -4,21 +4,20 @@ import bcrypt from "bcryptjs";
 //Models
 import {UserModel} from "../../database/user";
 
-
 //Validations
 import {ValidateSignup, ValidateSignin} from "../../validation/auth";
 
 const Router = express.Router();
 
 /*
-Route       /signup
+Route       /auth/signup
 Des         Signup using email and password
 Params      None
 Access      Public
 Method      POST
 */
 
-Router.post("/signup", async(req,res)=> {
+Router.post("/auth/signup", async(req,res)=> {
   try {
     await ValidateSignup(req.body.credentials);
     const {email, password, fullname, phoneNumber} = req.body.credentials;
@@ -44,12 +43,12 @@ await UserModel.create({
 const token = jwt.sign({user: {fullname, email}}, "ZomatoApp");
 
 return res.status(200).json({token, status: "success"});
-  }
-  
-  catch (error) {
+  } catch (error) {
     return res.status(500).json({error: error.message});
   }
 });
+
+//xyz555 -> hfhaFu%&v12**hvj -> vhgk -> ggkj
 
 /*
 Route       /signin
@@ -59,7 +58,7 @@ Access      Public
 Method      POST
 */
 
-Router.post("/signin", async(req,res)=> {
+Router.post("/auth/signin", async(req,res)=> {
   try {
    await ValidateSignin(req.body.credentials);
    const user = await UserModel.findByEmailAndPassword(

@@ -2,16 +2,17 @@ import express from "express";
 
 import {MenuModel, ImageModel} from "../../database/allModels";
 
+const Router = express.Router();
 
 /*
-Route        /list
+Route        /menu/list
 Des          Get list of menu based on id
 Params       -id
 Access       Public
 Method       GET
 */
 
-Router.get("/list/:_id", async(req,res)=> {
+Router.get("/menu/list/:_id", async(req,res)=> {
   try {
     const {_id} = req.params;
     const menus = await MenuModel.findOne(_id);
@@ -23,14 +24,14 @@ Router.get("/list/:_id", async(req,res)=> {
 });
 
 /*
-Route        /image
+Route        /menu/image
 Des          Get image of menu based on id
 Params       _id
 Access       Public
 Method       GET
 */
 
-Router.get("/image/:_id", async(req,res)=> {
+Router.get("/menu/image/:_id", async(req,res)=> {
   try {
     const {_id} = req.params;
     const menus = await ImageModel.findOne(_id);

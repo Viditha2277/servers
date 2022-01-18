@@ -1,20 +1,19 @@
 import express from "express";
 
 import {RestaurantModel} from "../../database/allModels";
-
 import {ValidateRestaurantCity, ValidateRestaurantSearchString} from "../../validation/restaurant";
 import {ValidateRestaurantId} from "../../validation/food";
-
+const Router = express.Router();
 
 /*
-Route        /
+Route        /restaurant
 Des          Get all the restaurant details
 Params       None
 Access       Public
 Method       GET
 */
 
-Router.get("/", async(req,res)=> {
+Router.get("/restaurant", async(req,res)=> {
   try {
     await ValidateRestaurantCity(req.query);
     const {city} = req.query;
@@ -26,14 +25,14 @@ Router.get("/", async(req,res)=> {
 });
 
 /*
-Route        /
+Route        /restaurant
 Des          Get a particular restaurant details based on id
 Params       _id
 Access       Public
 Method       GET
 */
 
-Router.get("/:_id", async(req,res)=> {
+Router.get("/restaurant/:_id", async(req,res)=> {
   try {
     await ValidateRestaurantId(req.params);
     const {_id} = req.params;
@@ -45,14 +44,14 @@ Router.get("/:_id", async(req,res)=> {
 });
 
 /*
-Route        /search
+Route        /restaurant/search
 Des          Get a particular restaurant details based on id
 Params       searchString
 Access       Public
 Method       GET
 */
 
-Router.get("/search", async(req,res)=> {
+Router.get("/restaurant/search", async(req,res)=> {
   try {
     await ValidateRestaurantSearchString(req.body);
     const {searchString} = req.body;
