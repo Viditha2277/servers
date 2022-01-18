@@ -3,8 +3,16 @@ import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
+import mongoose from "mongoose";
+
+import {FoodModel, ImageModel, MenuModel, OrderModel, RestaurantModel, ReviewModel, UserModel} from "./database/allModels";
+
 
 dotenv.config();
+
+mongoose.connect(
+  process.env.MONGO_URL
+  ).then(() => console.log("Connection Established!!"));
 
 const zomato = express();
 

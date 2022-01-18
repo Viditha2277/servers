@@ -6,9 +6,7 @@ import {RestaurantModel} from "./restaurant";
 import {ReviewModel} from "./reviews";
 import {UserModel} from "./user";
 
-mongoose.connect(
-  process.env.MONGO_URL
-  ).then(() => console.log("Connection Established!!"));
+
 
 export {
   FoodModel,
