@@ -6,11 +6,12 @@ const FoodSchema = new mongoose.Schema({
   isVeg: {type: Boolean, required: true},
   isContainsEgg: {type: Boolean, required: true},
   category: {type: String, required: true},
-  photos: {
+  price: {type: Number, default: 150, required: true }
+  /*photos: {
     type: mongoose.Types.ObjectId,
     ref: "Images"
   },
-  price: {type: Number, default: 150, required: true },
+  
   addOns: [
     {
       type: mongoose.Types.ObjectId,
@@ -24,7 +25,23 @@ const FoodSchema = new mongoose.Schema({
   }
 },
 {
-  timestamps: true
+  timestamps: true */
 });
 
 export const FoodModel = mongoose.model("Foods", FoodSchema);
+
+/*
+Postman Format
+
+{
+	"food":{
+		"name": "name2",
+		"descript": "nothing2",
+		"isVeg": true,
+		"isContainsEgg": false,
+		"category": "Veg",
+		"price": 145
+	}
+}
+
+*/

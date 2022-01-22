@@ -46,4 +46,25 @@ Router.get("/food/r/:category", async(req,res)=> {
   }
 });
 
+// dummy api's
+
+Router.get("/dummy/food/:name",async (req,res) => {
+  const getFood = await FoodModel.findOne({name: req.params.name});
+
+   if(!getFood) {
+     return res.json({
+       error: `Sorry! food name of ${req.params.name} is not available`
+     });
+   }
+
+   return res.json({Food: getFood});
+
+ });
+
+ Router.post("/dummy/food/new", async (req,res)=> {
+  const { newFood } = req.body;
+  const addNewFood = FoodModel.create(newFood)
+  return res.json({foods: addNewFood, message: "Food item was added!"});
+});
+
 export default Router;
